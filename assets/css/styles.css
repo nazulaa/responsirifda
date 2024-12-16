@@ -1,0 +1,266 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+  --back-color: #efe9e1;
+  --red-color: #741d29;
+  --white-color: #f2f2f2;
+  --cookie-color: #ac9c8d;
+  --body-font: 'Open Sans', sans-serif;
+  --biggest-font-size: clamp(2rem, 5vw, 3.5rem);
+  --h2-font-size: clamp(1rem, 2.5vw, 1.5rem);
+  --normal-font-size: clamp(0.875rem, 2vw, 1rem);
+  --z-back: -10;
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*===== LAYOUT =====*/
+.bd-grid {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+.l-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--cookie-color);
+  z-index: var(--z-modal);
+}
+
+/*===== NAVBAR =====*/
+.nav {
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.nav__menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav__logo {
+  color: var(--red-color);
+}
+
+.nav__item {
+  color: #741d29;
+  margin-bottom: 2rem;
+}
+
+.nav__link {
+  color: var(--red-color);
+}
+
+.nav__toggle {
+  font-size: 1.5rem;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+}
+
+/*=== Show menu ===*/
+.show {
+  top: 3rem;
+}
+
+/*===== HOME =====*/
+.home {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.home__parallax {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home__parallax-img1 {
+  background-image: url("/assets/img/pgweb1-03.png");
+  z-index: var(--z-normal);
+}
+
+.home__parallax-img2 {
+  background-image: url("/assets/img/pgweb2-02.png");
+  z-index: var(--z-tooltip);
+}
+
+.home__parallax-img3 {
+  background-image: url("/assets/img/pgweb3-01.png");
+  z-index: var(--z-fixed);
+}
+
+.home__parallax-img4 {
+  background-image: url("/assets/img/imgm4.png");
+  z-index: var(--z-fixed);
+}
+
+.home__title, .home__subtitle {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--red-color);
+  border: #741d29;
+}
+
+.home__title {
+  top: 32%;
+  font-size: var(--biggest-font-size);
+  z-index: var(--z-normal);
+  color: #440c14;
+  border: #741d29;
+}
+
+.home__subtitle {
+  top: 44%;
+  font-size: var(--h2-font-size);
+  font-weight: bold;
+  z-index: var(--z-tooltip);
+  color: #efe9e1;
+}
+
+.home__scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: var(--z-modal);
+}
+
+.home__scroll .bx-mouse {
+  color: var(--white-color);
+}
+
+/*===== SECTION =====*/
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  margin: 4rem;
+}
+
+
+.section__data {
+  flex: 2;
+  min-width: 300px;
+}
+
+.section__img {
+  flex: 2;
+  max-width: clamp(200px, 50vw, 500px);
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/*===== MEDIA QUERIES =====*/
+@media screen and (max-width: 480px) {
+  .nav {
+    font-size: 0.875rem;
+  }
+
+  .home__title {
+    font-size: 2rem;
+  }
+
+  .home__subtitle {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .section__img {
+    max-width: 300px;
+  }
+
+  .nav__menu {
+    height: 50%;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .section {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .home__title {
+    font-size: 2.5rem;
+  }
+
+  .home__subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .bd-grid {
+    margin-left: 50%;
+    margin-right: 50%;
+  }
+}
