@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Distribusi Jumlah Resto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <link rel="stylesheet" href="plugin/leaflet-search-master/dist/leaflet-search.min.css">
+
+    <link rel="stylesheet" href="plugin/Leaflet.defaultextent-master/dist/leaflet.defaultextent.css">
+
+    <style>
+        /* Gaya CSS seperti di awal */
+        body {
+            background-color: #40916c;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            color: #40916c;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #efe9e1;
+        }
+
+        th {
+            background-color: #ac9c8d;
+            color: white;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ffe6ee;
+        }
+
+        tr:hover {
+            background-color: rgb(205, 84, 100);
+            color: #efe9e1;
+        }
+
+        #map {
+            height: 680px;
+            width: 90%;
+            margin: 20px auto;
+            border: 1px solid #ffff;
+            border-radius: 50px;
+            position: relative;
+        }
+
+        /* Style untuk judul di dalam peta */
+        .map-title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px 20px;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 22px;
+            color: #1b4332;
+            text-align: center;
+            border: 2px solid #1b4332;
+        }
+
+        /* Style untuk judul di dalam peta */
+        .map-ket {
+            display: block;
+            text-decoration: none;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 8px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            color: #1b4332;
+            text-align: center;
+            border: 2px solid #1b4332;
+        }
+
+        .map-ket img {
+            height: 50px;
+            /* Atur tinggi gambar */
+            width: auto;
+            /* Jaga rasio */
+            vertical-align: middle;
+            /* Supaya sejajar dengan teks */
+            margin-left: 5px;
+            /* Jarak dari teks */
+        }
+
+
+        /* Navbar Customization */
+        .navbar {
+            background-color: #efe9e1;
+            border-bottom: 2px solid #1b4332;
+            box-shadow: 0 0 10px #1b4332;
+        }
+
+        .navbar-brand {
+            color: #1b4332;
+            margin-left: 70px;
+            font-size: 2.0rem;
+            font-style: bold;
+            font-weight: bolder;
+            font-family: 'Poppins', cursive;
+        }
+
+        .navbar-brand:hover {
+            color: #322d29;
+            transform: scale(1.15);
+            /* Perbesar sedikit */
+            transition: transform 0.3s ease-in-out;
+            /* Animasi halus */
+        }
+
+        .navbar-brand i {
+            margin-right: 8px;
+        }
+
+        .navbar-brand .text-satu {
+            color: #1b4332;
+            /* Warna biru untuk teks pertama */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar-brand .text-dua {
+            color: #1b4332;
+            /* Warna abu-abu untuk teks kedua */
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 100px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            font-family: 'Kanit', sans-serif;
+            /* Ganti dengan font yang diinginkan */
+            font-size: 20px;
+            /* Ukuran font */
+            font-weight: 500;
+            /* Ketebalan font */
+            color: #1b4332;
+            /* Warna font */
+            text-transform: uppercase;
+            /* Membuat teks menjadi huruf besar */
+            transition: color 0.3s ease;
+            /* Animasi saat hover */
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #ac9c8d;
+            /* Warna saat hover */
+        }
+
+        .nav-link {
+            color: #1b4332;
+            font-weight: 100;
+            margin-left: 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-style: bold;
+        }
+
+        .nav-link:hover {
+            color: #322d29 !important;
+            border-radius: 30px;
+        }
+
+
+
+        .navbar-toggler-icon {
+            background-color: #efe9e1;
+            color: #efe9e1;
+        }
+
+
+        section {
+            margin: 80px;
+            padding: 10px;
+            color: #efe9e1;
+            background-color: #1b4332;
+            box-shadow: 0 0 10px #1b4332;
+            border-radius: 40px;
+        }
+
+        .section__title {
+            font-family: 'Kanit', sans-serif;
+            color: #efe9e1;
+        }
+
+        .dropdown-menu {
+            background-color: #efe9e1;
+        }
+
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+            gap: 2rem;
+            padding: 2rem 2rem;
+            margin: 4rem;
+            overflow: hidden;
+            opacity: 0;
+            /* Awalnya tidak terlihat */
+            position: relative;
+            background: #efe9e1;
+            transform: translateY(-50px);
+            /* Parallax efek awal */
+            box-shadow: 0 0 20px rgb(26, 6, 9);
+            border-radius: 40px;
+        }
+
+        .section.visible {
+            opacity: 1;
+            /* Menjadi terlihat */
+            transform: translateY(0);
+            /* Kembali ke posisi normal */
+        }
+
+        .section.parallax {
+            will-change: transform, opacity;
+            /* Optimalisasi rendering */
+        }
+
+
+        .section__data {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .section__link {
+            margin-top: 105px;
+            border: 3px dashed #1b4332;
+            padding: 8px;
+            border-radius: 50px;
+        }
+
+        /* Tambahkan ke file CSS atau <style> */
+        .info.legend {
+            background: #fff;
+            padding: 6px 10px;
+            font: 12px/16px Arial, Helvetica, sans-serif;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            color: #333;
+            width: auto;
+            /* Lebar otomatis sesuai isi */
+            line-height: 18px;
+        }
+
+        .info.legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.8;
+            border: 1px solid #ccc;
+            /* opsional: beri batas */
+        }
+
+        .info.legend .label {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 18px;
+            margin-bottom: 4px;
+        }
+
+        .lbl {
+            font-size: 13px;
+            color: #000;
+            text-shadow: 0 0 2px #fff;
+            text-align: left;
+        }
+
+        .dropdown-item {
+            color: #1b4332;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .dropdown-item:hover {
+            background-color: #1b4332;
+            color: #efe9e1;
+        }
+
+        .section__img {
+            flex: 2;
+            max-width: clamp(200px, 50vw, 500px);
+            width: 100%;
+            height: 300px;
+            border-radius: 0.5rem;
+        }
+
+        .section__title {
+            font-family: 'Kanit', sans-serif;
+            color: #1b4332;
+            text-align: center;
+            width: 100%;
+        }
+
+        .l-section h4 {
+            color: #322d29;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .section__text .h4 {
+            font-family: 'Kanit', sans-serif;
+            color: #1b4332;
+            text-align: center;
+            width: 100%;
+        }
+
+        /*===== MEDIA QUERIES =====*/
+        @media screen and (max-width: 480px) {
+            .nav {
+                font-size: 0.875rem;
+            }
+
+            .home__title {
+                font-size: 2rem;
+            }
+
+            .home__subtitle {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .section__img {
+                max-width: 300px;
+            }
+
+            .nav__menu {
+                height: 50%;
+            }
+
+            .map-title {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            .section {
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+
+            .home__title {
+                font-size: 2.5rem;
+            }
+
+            .home__subtitle {
+                font-size: 1.25rem;
+            }
+
+            .map-title {
+                font-size: 20px;
+                padding: 12px 25px;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .bd-grid {
+                margin-left: 50%;
+                margin-right: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <span class="text-satu"> Bogformation </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-map"></i> Maps
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="map.html">Summary Map</a></li>
+                            <li><a class="dropdown-item" href="allmaps.html">Spots Distribution</a></li>
+                            <li><a class="dropdown-item" href="landuse.html">Landuse</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.html">
+                            <i class="fa-solid fa-cloud-showers-heavy"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="stats.html">
+                            <i class="fa-solid fa-cat"></i> Stats
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Div untuk peta dengan judul di dalamnya -->
+    <div id="map">
+        <div class="map-title">Peta Jumlah Rumah Makan di Kota Bogor Berdasarkan Kecamatan</div>
+
+        <a href="https://bps.go.id" target="_blank" class="map-ket">
+            Sumber Data : <img src="assets/img/logobps.png" alt="">
+        </a>
+    </div>
+
+
+
+
+    <!-- FEATURE Modal -->
+    <div class="modal fade" id="featureModal" tabindex="-1" aria-labelledby="featureModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="featureModalTitle"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="featureModalBody">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="plugin/leaflet-search-master/dist/leaflet-search.min.js"></script>
+    <script src="plugin/Leaflet.defaultextent-master/dist/leaflet.defaultextent.js"></script>
+
+    <script>
+        // Inisialisasi peta
+        var map = L.map("map").setView([-6.6120429, 106.8144126], 12);
+
+        // Tile Layer Base Map
+        var basemap = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        });
+
+        var googleMaps = L.tileLayer(
+            "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+            {
+                maxZoom: 20,
+                subdomains: ["mt0", "mt1", "mt2", "mt3"],
+                attribution: "Google Maps",
+            }
+        );
+
+        var googleSatellite = L.tileLayer(
+            "http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+            {
+                maxZoom: 20,
+                subdomains: ["mt0", "mt1", "mt2", "mt3"],
+                attribution: "Google Satellite",
+            }
+        );
+
+        // Menambahkan basemap ke dalam peta
+        basemap.addTo(map);
+
+        // GeoJSON Area Bogor (Polygon)
+        map.createPane('paneBogor');
+        map.getPane('paneBogor').style.zIndex = 400;
+
+
+        function getColor(d) {
+            return d > 250 ? '#d4a500' :   // paling tinggi
+                d > 200 ? '#e0b700' :
+                    d > 150 ? '#ebc700' :
+                        d > 100 ? '#f6d854' :
+                            d > 50 ? '#fbe79b' :
+                                '#fff4d1';   // paling rendah
+        }
+
+
+        function style(feature) {
+            return {
+                fillColor: getColor(feature.properties.Jumlah),
+                weight: 1.5,
+                color: '#ffffff',
+                opacity: 1,
+                fillOpacity: 1
+            };
+        }
+
+
+        var bogorArea = L.geoJSON(null, {
+            pane: 'paneBogor',
+            style: style,
+            onEachFeature: function (feature, layer) {
+
+
+                var popup_content =
+                    "<b>Kecamatan:</b> " + feature.properties.Kecamatan + "<br>" +
+                    "<b>Jumlah:</b> " + feature.properties.Jumlah + " tempat";
+
+                layer
+                    .bindPopup(popup_content)
+                    .bindTooltip(feature.properties.Kecamatan, { sticky: true });
+
+                /* Highlight on hover */
+                layer.on({
+                    mouseover: function (e) {
+                        var l = e.target;
+                        l.setStyle({ weight: 2, color: '#666', fillOpacity: 0.9 });
+                    },
+                    mouseout: function (e) { bogorArea.resetStyle(e.target); }
+                });
+
+                /* Label angka di pusat poligon */
+                var center = layer.getBounds().getCenter();
+                L.marker(center, {
+                    icon: L.divIcon({
+                        className: 'lbl',
+                        html: '<b>' + feature.properties.Jumlah + '</b>',
+                        iconSize: [30, 20]
+                    })
+                }).addTo(map);
+            }
+        });
+
+        $.getJSON('assets/data/infobogor.geojson', function (data) {
+            bogorArea.addData(data);
+            map.addLayer(bogorArea);
+        });
+
+        var legend = L.control({ position: 'bottomright' });
+
+        legend.onAdd = function () {
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [0, 50, 100, 150, 200, 250],
+                labels = [];
+
+            div.innerHTML += '<strong>Jumlah</strong><br>';
+
+            // Loop dari bawah ke atas agar warna makin gelap ke atas
+            for (var i = 0; i < grades.length; i++) {
+                var from = grades[i];
+                var to = grades[i + 1];
+
+                div.innerHTML +=
+                    '<i style="background:' + getColor(from + 1) + '"></i> ' +
+                    from + (to ? '&ndash;' + to + '<br>' : '+');
+            }
+
+            return div;
+        };
+
+        legend.addTo(map);
+
+
+
+        // WMS Layers
+        var administrasiDesa = L.tileLayer.wms(
+            "http://localhost:8080/geoserver/pgweb10/wms?", // URL Geoserver
+            {
+                layers: "pgweb10:ADMINISTRASIDESA_AR_25K", // Nama layer
+                format: "image/png", // Format output
+                transparent: true, // Transparansi layer
+                attribution: "Administrasi Desa AR 25K", // Atribusi
+            }
+        );
+
+        // Add WMS Layers to Map
+        administrasiDesa.addTo(map);
+
+
+        // Control Layer
+        var baseMaps = {
+            "Basemap": basemap,
+            "Google Maps": googleMaps,
+            "Google Satellite": googleSatellite,
+        };
+
+        var overlayMaps = {
+            "resto": resto,
+            "Area": administrasiDesa,
+        };
+
+        var controllayer = L.control.layers(baseMaps, overlayMaps);
+        controllayer.addTo(map);
+
+        // Control Extent
+        L.control.defaultExtent()
+            .addTo(map);
+
+
+        //SEARCH CONTROL
+        var searchControl = new L.Control.Search({
+            layer: bogorArea,
+            propertyName: 'Kecamatan',
+            marker: false,
+            moveToLocation: function (latlng, title, map) {
+                //map.fitBounds( latlng.layer.getBounds() );
+                var zoom = map.getBoundsZoom(latlng.layer.getBounds());
+                map.setView(latlng, zoom); // access the zoom
+            }
+        });
+
+        searchControl.on('search:locationfound', function (e) {
+
+            //console.log('search:locationfound', );
+
+            //map.removeLayer(this._markerSearch)
+
+            e.layer.setStyle({ fillColor: '#ffef96', color: '#ffef96' });
+            if (e.layer._popup)
+                e.layer.openPopup();
+
+        }).on('search:collapsed', function (e) {
+
+            bogorArea.eachLayer(function (layer) {	//restore feature color
+                bogorArea.resetStyle(layer);
+            });
+        });
+
+        map.addControl(searchControl);  //inizialize search control 
+
+        L.Control.Watermark = L.Control.extend({
+            onAdd: function (map) {
+                var img = L.DomUtil.create('img');
+
+                img.src = 'icon/logoo.png';
+                img.style.width = '200px';
+
+
+                return img;
+            },
+
+            onRemove: function (map) {
+                // Nothing to do here
+            }
+        });
+
+        L.control.watermark = function (opts) {
+            return new L.Control.Watermark(opts);
+        }
+
+        L.control.watermark({ position: 'bottomleft' }).addTo(map);
+
+    </script>
+
+    <script>
+        function checkVisibility() {
+            const sections = document.querySelectorAll('.section'); // Seleksi elemen dengan kelas 'section'
+
+            sections.forEach(section => {
+                const sectionRect = section.getBoundingClientRect();
+                const isVisible = sectionRect.top < window.innerHeight && sectionRect.bottom >= 0;
+
+                if (isVisible) {
+                    section.classList.add('visible'); // Tambahkan kelas 'visible' saat section terlihat
+                } else {
+                    section.classList.remove('visible'); // Hapus kelas jika tidak terlihat
+                }
+            });
+        }
+
+        // Event listeners untuk memantau perubahan scroll, load, dan resize
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+        window.addEventListener('resize', checkVisibility);
+
+        // Trigger pertama saat halaman dimuat
+        checkVisibility();
+    </script>
+
+</body>
+
+</html>

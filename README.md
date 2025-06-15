@@ -1,41 +1,36 @@
-**RESPONSI PGWEB RIFDA NAJLA AZZAHRA**
-
-**Produk :**
-
-**R8 (RECCOMENATE) : 8 RECCOMENDATIONS OF CAFE AND EATERY AROUND BOGOR**
-
-Kota Bogor sebagai salah satu kota yang sangat digemari wisatawan karena udara yang sejuk dan pemandangan alamnya yang indah, wisatawan juga tentunya akan sembari mencari cafe atau tempat makan yang menarik saat mengunjungi Kota Bogor. Selain itu, Cafe menjadi salah satu pilihan bagi mahasiswa yang dijadikan tempat yang nyaman untuk belajar dan mengerjakan tugas. Namun, situs web yang menyediakan informasi lengkap mengenai cafe tersebut masih terbatas.
-
----
 
 ## Deskripsi Produk
 Website berbasiskan GIS "Reccomenate" merupakan situs web yang menyediakan informasi (sebaran dan rekomendasi) tempat makan dan cafe di kota bogor dengan menampilkan review serta peta interaktif dengan informasi pelengkap dari tempat tersebut dengan tujuan memudahkan wisatawan yang ingin mencari tempat makan menarik atau pun mahasiswa yang ingin mencari spot untuk nugas.
 
 Beberapa Tujuan Pembuatan Produk adalah :
 
-1. Mempermudah pencarian cafe bagi wisatawan dan mahasiswa
-2. Menyajikan informasi yang mudah diakses dan interaktif
-3. Memberikan rekomendasi dan informasi sebaran seluruh cafe di Kota Bogor
+1. Mempermudah pencarian cafe dan rumah makan bagi wisatawan dan mahasiswa
+2. Menyajikan informasi Bogor yang mudah diakses dan interaktif
+3. Membantu analisis dan pemahaman lokasi lahan di Bogor
+4. Menyediakan informasi lebih lanjut mengenai Kota Bogor seperti jumlah penduduk, jumlah wisatawan, dan kondisi penggunaan lahan
+5. Menyediakan informasi mengenai jumlah rumah makan dan jumlah wisatawan dalam kurun beberapa tahun Kota Bogor yang dapat digunakan untuk analisis
 
-Aplikasi ini cocok untuk mahasiswa dan penduduk setempat, atau pun wisatawan.
-
+## Sasaran Produk
+- Mahasiswa : Mahasiswa Jabodetabek yang ingin mencari udara segar dengan mengunjungi kafe di Kota Bogor atau pun mahasiswa yang ingin mencari suasana baru untuk mengerjakan tugas
+- Penduduk setempat (semua golongan) : Penduduk yang ingin mencari tempat makan di sekitarnya yang enak dan menarik
+- Wisatawan : Wisatawan yang berkunjung untuk menjelajahi tempat wisata dan rumah makan atau cafe menarik di Kota Bogor
+- Surveyor/Analyst : Mempermudah memperoleh akses distribusi penggunaan lahan dan data statistik di Kota Bogor yang interaktif 
 ---
 
 ## Komponen Pembangun Produk
 
 1. **Frontend:**
    - CSS : Untuk tampilan UI Sederhana
-   - SCSS : Untuk tampilan UI yang lebih kompleks (pembuatan parallax scrolling)
+   - SCSS : Untuk tampilan UI yang lebih kompleks (pembuatan parallax scrolling (home))
    - LeafletJS : Library untuk tampilan peta interaktif
    - FontAwesome : Icon
+   - Javascript : Chart dan Parallax scrolling
 
 2. **Backend:**
    - Framework: Bootstrap
-   - Database: MySQL (PhpMyAdmin)
-   - HTML : Struktur Utama Isi Website
-   - PHP : Struktur halaman database pada website
-   - Javascript : Inisialisasi Peta Interaktif dan Animasi Parallax
-   - GeoJSON : File untuk menampilkan data titik
+   - HTML : Struktur Utama Isi Website`
+   - Javascript : Inisialisasi Peta Interaktif dan Visualisasi Charts
+   - GeoJSON : File untuk menampilkan data titik, garis, area
 
 3. **Integrasi Lain:**
    - API: GoogleFonts API (Fonts)
@@ -45,44 +40,22 @@ Aplikasi ini cocok untuk mahasiswa dan penduduk setempat, atau pun wisatawan.
 
 ---
 
-## Sumber Data
-
-- Data titik AllMaps.html : Scraping Google Collaboratory
-- Data titik rekomendasi dan review : https://pergikuliner.com/
-- Data jumlah penduduk : https://bogorkota.bps.go.id
-- Data Area : https://www.indonesia-geospasial.com/2020/01/shp-rbi-provinsi-jawa-barat-perwilayah.html?m=1
-- Informasi Umum Kota Bogor : https://id.m.wikipedia.org/wiki/Kota_Bogor
+## Visualisasi
+   - Klasifikasi Data Statistik Jumlah Restoran Pada Peta dengan berdasarkan tingkatan jumlah alami (Natural Breaks)
+   - Line Graph Data Statistik Perkembangan Kunjungan Wisata Kota Bogor tahun 2008-2014
+   - Bar Graph Jumlah Penduduk Kota Bogor 2024
+   - Visualisasi Peta Penggunaan Lahan
 
 ---
 
-## Tangkapan Layar Komponen Penting Produk
+## Sumber Data
 
-1. **Halaman Utama (Index.html):**
-   Menyediakan Menu Utama, footer, dan Home Hero
-   
-   ![Halaman Utama](assets/img/home1.png)
-   ![Halaman Utama](assets/img/home2.png)
+- Data sebaran cafe : Scraping Google Collaboratory
+- Data jumlah penduduk, Jumlah Rumah Makan, Data Kunjungan Wisatawan : https://bogorkota.bps.go.id
+- Data Area Bogor : https://www.indonesia-geospasial.com/2020/01/shp-rbi-provinsi-jawa-barat-perwilayah.html?m=1
+- Informasi Umum Kota Bogor : https://id.m.wikipedia.org/wiki/Kota_Bogor
+- Data Penggunaan Lahan : https://tanahair.indonesia.go.id/portal-web/
 
-2. **Map dan List rekomendasi (Index.php):**
-   Peta Interaktif dan scroll card informasi cafe rekomendasi
-   
-   ![Index.php](assets/img/recmap.png)
-   ![Index.php](assets/img/indexphp.png)
+---
 
-
-3. **Map Seluruh Cafe di Kota Bogor (Allmaps.html):**
-   Menampilkan informasi lengkap mengenai keseluruhan cafe yang ada di Kota Bogor.
-   
-   ![Seluruh Cafe](assets/img/allmaps.png)
-
-4. **Informasi Kota Bogor (top.html):**
-   Halaman untuk mengenal sejarah, letak geografis, serta demografis Kota Bogor secara umum.
-   
-   ![Info! ](assets/img/info1.png)
-   ![Info! ](assets/img/info2.png)
-
-5. **Tambah Rekomendasi dan Review (more.php):**
-   Halaman untuk melakukan review serta rekomendasi cafe baru dan tersimpan pada halaman web.
-   
-   ![Add Review](assets/img/add.png)
-
+Created By : Rifda Najla Azzahra (23/523111/SV/23854) on June 2025

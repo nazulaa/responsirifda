@@ -1,91 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Distribution of Cafes in Bogor</title>
 
-        <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogformation</title>
 
-        <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <!-- ICONS BOXICONS -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" <link
+        rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 
-        <style>
+    <!-- ICONS BOXICONS -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-        body{
+    <style>
+        body {
             background-color: #efe9e1;
         }
 
         .home__title {
-  top: 32%;
-  font-size: var(--biggest-font-size);
-  z-index: var(--z-normal);
-  color: #440c14;
-  font-family: 'Shrikhand', cursive;
-  border: #741d29;
-}
+            top: 32%;
+            font-size: var(--biggest-font-size);
+            z-index: var(--z-normal);
+            color: #1b4332;
+            font-family: 'Poppins', cursive;
+            border: #1b4332;
+        }
 
-            /* Navbar Customization */
+        /* Navbar Customization */
         .navbar {
-            background-color: #741d29;
+            background-color: #1b4332;
             border-bottom: 2px solid #efe9e1;
-            box-shadow: 0 0 10px #741d29;
+            box-shadow: 0 0 10px #1b4332;
         }
 
         .navbar-brand {
             color: #efe9e1;
             margin-left: 70px;
-            font-size: 2.5rem;
+            font-size: 2.0rem;
             font-style: bold;
-            font-family: 'Shrikhand', cursive;
+            font-weight: bolder;
+            font-family: 'Poppins', cursive;
         }
 
         .navbar-brand:hover {
             color: #322d29;
             transform: scale(1.15);
-      /* Perbesar sedikit */
-      transition: transform 0.3s ease-in-out;
-      /* Animasi halus */
+            /* Perbesar sedikit */
+            transition: transform 0.3s ease-in-out;
+            /* Animasi halus */
         }
 
         .navbar-brand i {
             margin-right: 8px;
         }
 
-        .navbar-brand .text-satu { 
-            color: #efe9e1; /* Warna biru untuk teks pertama */
+        .navbar-brand .text-satu {
+            color: #efe9e1;
+            font-family: 'Poppins', sans-serif;
         }
+
         .navbar-brand .text-dua {
-            color: #efe9e1; /* Warna abu-abu untuk teks kedua */
+            color: #efe9e1;
             font-family: 'Poppins', sans-serif;
             font-size: 20px;
             font-weight: 100px;
         }
 
         .navbar-nav .nav-item .nav-link {
-  font-family: 'Kanit', sans-serif; /* Ganti dengan font yang diinginkan */
-  font-size: 20px; /* Ukuran font */
-  font-weight: 500; /* Ketebalan font */
-  color: #efe9e1; /* Warna font */
-  text-transform: uppercase; /* Membuat teks menjadi huruf besar */
-  transition: color 0.3s ease; /* Animasi saat hover */
-}
+            font-family: 'Kanit', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: #efe9e1;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
 
-.navbar-nav .nav-item .nav-link:hover {
-  color: #ac9c8d; /* Warna saat hover */
-}
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #ac9c8d;
+        }
 
         .nav-link {
             color: #efe9e1;
@@ -104,144 +108,247 @@
 
 
         .navbar-toggler-icon {
-            background-color: #741d29;
+            background-color: #1b4332;
             color: #efe9e1;
         }
 
-        
-        section{
+
+        section {
             margin: 80px;
             padding: 10px;
             color: #efe9e1;
-            background-color: #741d29;
-            box-shadow: 0 0 10px #741d29;
+            background-color: #1b4332;
+            box-shadow: 0 0 10px #1b4332;
             border-radius: 40px;
         }
-        
-        .section__title{
+
+        .section__title {
             font-family: 'Kanit', sans-serif;
             color: #efe9e1;
         }
 
-        .dropdown-menu{
+        .dropdown-menu {
             background-color: #efe9e1;
         }
-        
-        
-        </style>
 
-    </head>
-    <body>
-        <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        .stats-container {
+            display: flex;
+            margin-top: 70px;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
 
+        }
 
-        <!-- ===== HEADER =====-->
-        <header class="l-header">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <span class="text-satu">      R8 </span> 
-                        <span class="text-dua">  Reccomenate </span>
-                      </a>                      
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-map"></i> Maps
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="index.php">Our Reccomendation</a></li>
-                                    <li><a class="dropdown-item" href="allmaps.html">All Around Bogor</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="top.html">
-                                    <i class="fa-solid fa-cloud-showers-heavy"></i> About
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="more.php">
-                                    <i class="fa-solid fa-cat"></i> Tell Us!
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            
+        .stat-card {
+            display: block;
+            text-decoration: none;
+            background-color: #1b4332;
+            /* Default */
+            color: white;
+            cursor: pointer;
+            padding: 1.5rem;
+            border-radius: 12px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px #1b4332;
+            transition: box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #ffefad;
+            color: black;
+        }
+
+        .stat-card:nth-child(2) {
+            background-color: #40916c;
+        }
+
+        .stat-card:nth-child(2):hover {
+            background-color: #ffefad;
+            color: black;
+        }
+
+        .stat-card:nth-child(3) {
+            background-color: #52b788;
+        }
+
+        .stat-card:nth-child(3):hover {
+            background-color: #ffefad;
+            color: black;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            margin-top: 0.4rem;
+            line-height: 1.2;
+        }
+
+        .home__title {
+            font-weight: bold;
+        }
+
+        .dropdown-item {
+            color: #1b4332;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .dropdown-item:hover {
+            background-color: #1b4332;
+            color: #efe9e1;
+        }
+    </style>
+
+</head>
+
+<body>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-</header>
 
-        <main>
-            
-            <!-- ===== HOME =====-->
-            <div class="home">
-                <div class="parallax home__parallax home__parallax-img1" data-rellax-speed="-9"></div>
-                <div class="parallax home__parallax home__parallax-img2" data-rellax-speed="-7"></div>
-                <div class="parallax home__parallax home__parallax-img3" data-rellax-speed="-6"></div>
-                <div class="parallax home__parallax home__parallax-img4" data-rellax-speed="-3"></div>
-
-                <h1 class="parallax home__title" data-rellax-speed="-6"> Welcome to R8! </h1>
-                <span class="parallax home__subtitle" data-rellax-speed="-5">Information of Cafe and Eatery Around Bogor</span> 
-
-                <div class="home__scroll">
-                <a href="#section1"><i class='bx bx-mouse'></i></a>
+    <!-- ===== HEADER =====-->
+    <header class="l-header">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <span class="text-satu"> Bogformation </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-map"></i> Maps
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="map.html">Summary Map</a></li>
+                                <li><a class="dropdown-item" href="allmaps.html">Spots Distribution</a></li>
+                                <li><a class="dropdown-item" href="landuse.html">Landuse</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="info.html">
+                                <i class="fa-solid fa-cloud-showers-heavy"></i> About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="stats.html">
+                                <i class="fa-solid fa-cat"></i> Stats
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </nav>
 
-            <section class="l-section section--first" id="section1">
-                <div class="section">
-                    <div class="section__data">
-                        <h2 class="section__title">Mari Mengenal Kota Bogor!</h2>
-                        <p class="section__text">Bogor, yang dikenal sebagai "Kota Hujan," terletak di provinsi Jawa Barat, Indonesia, dan memiliki curah hujan tinggi hampir sepanjang tahun. Kota ini kaya akan sejarah, salah satunya sebagai tempat berdirinya Istana Bogor, yang merupakan salah satu dari enam istana kepresidenan Indonesia dan dikelilingi oleh Kebun Raya Bogor, salah satu kebun botani tertua di Asia. 
-                            Bogor juga memiliki budaya Sunda yang kental, tercermin dalam seni, bahasa, dan kulinernya, seperti asinan dan doclang. 
-                            Dengan lokasinya yang strategis di kaki Gunung Salak dan Gunung Gede, Bogor menjadi destinasi favorit wisatawan yang mencari suasana alam yang sejuk dan segar. Selain itu, kota ini juga menjadi pusat pendidikan dan penelitian, dengan keberadaan Institut Pertanian Bogor (IPB), yang merupakan salah satu universitas terkemuka di Indonesia.</p>
-                    </div>
-                    <img src="assets/img/home.jpg" alt="" class="section__img">
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    </header>
+
+    <main>
+
+        <!-- ===== HOME =====-->
+        <div class="home">
+            <div class="parallax home__parallax home__parallax-img1" data-rellax-speed="-9"></div>
+            <div class="parallax home__parallax home__parallax-img2" data-rellax-speed="-7"></div>
+            <div class="parallax home__parallax home__parallax-img3" data-rellax-speed="-6"></div>
+            <div class="parallax home__parallax home__parallax-img4" data-rellax-speed="-3"></div>
+
+            <h1 class="parallax home__title" data-rellax-speed="-6"> Welcome to Bogformation </h1>
+            <span class="parallax home__subtitle" data-rellax-speed="-5">Bogor's Spatial Visualization: Data, Stats,
+                Distribution</span>
+
+            <div class="home__scroll">
+                <a href="#section1"><i class='bx bx-mouse'></i></a>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <a href="stats.html" class="stat-card">
+                <div class="stat-value">15.454.867</div>
+                <div class="stat-label">Jumlah Wisatawan<br>2008–2014</div>
+            </a>
+
+            <a href="map.html" class="stat-card">
+                <div class="stat-value">923</div>
+                <div class="stat-label">Jumlah Restoran dan<br>Tempat Makan</div>
+            </a>
+
+            <a href="allmaps.html" class="stat-card">
+                <div class="stat-value">231</div>
+                <div class="stat-label">Jumlah Cafe dan Eatery</div>
+            </a>
+        </div>
+
+
+        <section class="l-section section--first" id="section1">
+            <div class="section">
+                <div class="section__data">
+                    <h2 class="section__title">Mari Mengenal Kota Bogor!</h2>
+                    <p class="section__text">Bogor, yang dikenal sebagai "Kota Hujan," terletak di provinsi Jawa Barat,
+                        Indonesia, dan memiliki curah hujan tinggi hampir sepanjang tahun. Kota ini kaya akan sejarah,
+                        salah satunya sebagai tempat berdirinya Istana Bogor, yang merupakan salah satu dari enam istana
+                        kepresidenan Indonesia dan dikelilingi oleh Kebun Raya Bogor, salah satu kebun botani tertua di
+                        Asia.
+                        Bogor juga memiliki budaya Sunda yang kental, tercermin dalam seni, bahasa, dan kulinernya,
+                        seperti asinan dan doclang.
+                        Dengan lokasinya yang strategis di kaki Gunung Salak dan Gunung Gede, Bogor menjadi destinasi
+                        favorit wisatawan yang mencari suasana alam yang sejuk dan segar. Selain itu, kota ini juga
+                        menjadi pusat pendidikan dan penelitian, dengan keberadaan Institut Pertanian Bogor (IPB), yang
+                        merupakan salah satu universitas terkemuka di Indonesia.</p>
                 </div>
-            </section>           
-    
+                <img src="assets/img/letakbogor.png" alt="" class="section__img">
+            </div>
         </section>
-        </main>
 
-        <!-- RELLAX JS -->
-        <script src="assets/js/rellax.min.js"></script>
+        </section>
+    </main>
 
-        <!-- GSAP -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <!-- RELLAX JS -->
+    <script src="assets/js/rellax.min.js"></script>
 
-        <!-- SCROLL REVEAL -->
-        <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
 
-        <!-- MAIN JS -->
-        <script src="assets/js/main.js"></script>
+    <!-- SCROLL REVEAL -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-        
-        
-    </body>
+    <!-- MAIN JS -->
+    <script src="assets/js/main.js"></script>
 
-    <!DOCTYPE html>
+
+
+</body>
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card Hover Effects</title>
-    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -251,184 +358,161 @@
         }
 
         .card-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 100%;
-    margin-bottom: 100px;
-    margin-top: 0;
-    padding-top: 10px;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 100%;
+            margin-bottom: 100px;
+            margin-top: 0;
+            padding-top: 10px;
+        }
 
-.card {
-    text-decoration: none;
-    display: block;
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    text-align: center;
-    max-width: 300px; /* Maksimum lebar kartu */
-    width: 100%; /* Pastikan kartu fleksibel */
-    height: 300px; /* Tinggi default */
-    transition: transform 1.0s ease, opacity 1.8s ease;
-    overflow: hidden;
-    position: relative;
-    opacity: 0;
-    transform: translateX(70px);
-    box-shadow: 0 0 10px #741d29;
-}
-/* Efek parallax saat kartu terlihat */
-.card.visible {
-    opacity: 1;
-    transform: translateX(0); /* Kembali ke posisi normal */
-}
+        .card {
+            text-decoration: none;
+            display: block;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+            height: 300px;
+            transition: transform 1.0s ease, opacity 1.8s ease;
+            overflow: hidden;
+            position: relative;
+            opacity: 0;
+            transform: translateX(70px);
+            box-shadow: 0 0 10px #1b4332;
+        }
 
-.card img.card-icon {
-    width: 100%;
-    height: 200px; /* Tinggi gambar default */
-    margin: 10px 0;
-    display: block;
-    border-radius: 16px;
-}
+        /* Efek parallax saat kartu terlihat */
+        .card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
 
-.card h3 {
-    font-size: 1.2em;
-    margin: 10px 0;
-    color: #333;
-    font-family: 'Kanit', cursive;
-}
+        .card img.card-icon {
+            width: 100%;
+            height: 200px;
+            margin: 10px 0;
+            display: block;
+            border-radius: 16px;
+        }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
+        .card h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #333;
+            font-family: 'Kanit', cursive;
+        }
 
-/* Efek hover grid */
-.card-grid:hover > .card:not(:hover) {
-    transform: scale(0.9);
-}
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
 
-.card-grid:hover > .card:not(:hover) .card-background {
-    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
-}
+        /* Efek hover grid */
+        .card-grid:hover>.card:not(:hover) {
+            transform: scale(0.9);
+        }
 
-/* Responsif untuk Tablet */
-@media (max-width: 768px) {
-    .card {
-        max-width: 50%; /* Kartu mengisi 90% lebar layar */
-        height: auto; /* Tinggi otomatis */
-    }
+        .card-grid:hover>.card:not(:hover) .card-background {
+            filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+        }
 
-    
+        /* Responsif untuk Tablet */
+        @media (max-width: 768px) {
+            .card {
+                max-width: 50%;
+                height: auto;
+            }
 
-    .card-grid {
-        padding: 10px;
-        gap: 15px; /* Jarak antar kartu lebih kecil */
-    }
-}
 
-/* Responsif untuk Ponsel */
-@media (max-width: 480px) {
-    .card {
-        max-width: 50%; /* Kartu memenuhi lebar layar */
-        height: auto; /* Tinggi otomatis */
-    }
 
-    .card img.card-icon {
-        height: 100%; /* Tinggi gambar lebih kecil di layar ponsel */
-    }
+            .card-grid {
+                padding: 10px;
+                gap: 15px;
+            }
+        }
 
-    .card-grid {
-        gap: 10px; /* Jarak antar kartu lebih kecil */
-    }
-}
-.judul h1 {
+        /* Responsif untuk Ponsel */
+        @media (max-width: 480px) {
+            .card {
+                max-width: 50%;
+                height: auto;
+            }
+
+            .card img.card-icon {
+                height: 100%;
+            }
+
+            .card-grid {
+                gap: 10px;
+            }
+        }
+
+        .judul h1 {
             margin-top: 40px;
             font-size: 50px;
-            color: #741d29;
+            color: #1b4332;
             text-align: center;
             font-family: 'Kanit', sans-serif;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="judul">
-        <h1> R8's Main Features </h1>
-    </div>
-
-    <div class="card-grid">
-        <!-- Kartu 1 -->
-        <a href="index.php" class="card">
-            <div class="card-background" style="background-color: aqua;"></div>
-            <img src="assets/img/cafe.svg" alt="Adopt Icon" class="card-icon">
-            <h3>Top Ate (8)</h3>
-        </a>
-    
-        <!-- Kartu 2 -->
-        <a href="allmaps.html" class="card">
-            <div class="card-background" style="background-image: url('assets/img/nicole.jpg');"></div>
-            <img src="assets/img/coffee.svg" alt="Volunteer Icon" class="card-icon">
-            <h3>All Around You</h3>
-        </a>
-    
-        <!-- Kartu 3 -->
-        <a href="top.html" class="card">
-            <div class="card-background" style="background-image: url('assets/img/padre.jpg');"></div>
-            <img src="assets/img/abt-red.svg" alt="Donate Icon" class="card-icon">
-            <h3>Know Bogor Better!</h3>
-        </a>
-    </div>
-
-    
-    
     <script>
         // Fungsi untuk mengecek apakah elemen berada di viewport
         function isInViewport(element) {
             const rect = element.getBoundingClientRect();
             return rect.top < window.innerHeight && rect.bottom >= 0;
         }
-    
+
         // Fungsi untuk memeriksa visibilitas setiap kartu
         function checkVisibility() {
-            const cards = document.querySelectorAll('.card'); // Pilih semua elemen dengan kelas "card"
-    
+            const cards = document.querySelectorAll('.card');
+
             cards.forEach((card) => {
                 if (isInViewport(card)) {
-                    card.classList.add('visible'); // Tambahkan kelas visible saat kartu muncul
+                    card.classList.add('visible');
                 } else {
-                    card.classList.remove('visible'); // Hapus kelas jika tidak terlihat
+                    card.classList.remove('visible');
                 }
             });
         }
-    
+
         // Tambahkan event listener untuk mendeteksi scroll, resize, dan load
         window.addEventListener('scroll', checkVisibility);
         window.addEventListener('resize', checkVisibility);
         window.addEventListener('load', checkVisibility);
-    
+
         // Jalankan pengecekan saat pertama kali halaman dimuat
         checkVisibility();
     </script>
-    
-    
+
+
 </body>
+
 </html>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> About Bogor </title>
-    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         .footer {
-            background-color: #741d29;
+            background-color: #1b4332;
             padding: 20px 10px;
             display: flex;
             flex-direction: column;
@@ -440,7 +524,7 @@
             font-size: 30px;
             font-weight: bold;
             letter-spacing: 5px;
-            font-family: 'Shrikhand', cursive;
+            font-family: 'Poppins', cursive;
         }
 
         .footer-description {
@@ -479,15 +563,15 @@
         .subscribe-container {
             display: flex;
             align-items: center;
-            gap: 10px; /* Jarak antara gambar dan tombol */
+            gap: 10px;
             margin-top: 10px;
         }
 
         .profile-img {
-            width: 100px; /* Ukuran gambar */
+            width: 100px;
             height: 100px;
-            border-radius: 50%; /* Membuat gambar bulat */
-            object-fit: cover; /* Agar gambar tidak terdistorsi */
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 25px;
         }
 
@@ -508,10 +592,11 @@
         }
     </style>
 </head>
+
 <body>
     <footer class="footer">
-        <div class="footer-logo">R8</div>
-        <p class="footer-description">Information and 8 Reccomendations of Cafe and Eatery Around Bogor</p>
+        <div class="footer-logo">Bogformation</div>
+        <p class="footer-description">All Around Bogor</p>
         <div class="footer-links">
             <p>Rifda Najla Azzahra</p>
             <p>23/523111/SV/23854</p>
@@ -523,9 +608,11 @@
         <div class="footer-social">
             <a href="https://github.com/nazulaa" target="_blank">GitHub</a>
             <a href="https://www.instagram.com/rifdaashh?igsh=aWg1aTFlcWgweTF2" target="_blank">Instagram</a>
-            <a href="https://www.linkedin.com/in/rifda-najla-azzahra-9a0301291?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/rifda-najla-azzahra-9a0301291?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank">LinkedIn</a>
         </div>
         <div class="footer-copyright">&copy; 2024 SHINORIFZU, INC.</div>
     </footer>
 </body>
+
 </html>

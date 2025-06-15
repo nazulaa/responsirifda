@@ -5,7 +5,7 @@
 /*===== VARIABLES CSS =====*/
 :root {
   --back-color: #efe9e1;
-  --red-color: #741d29;
+  --green-color: #1b4332;
   --white-color: #f2f2f2;
   --cookie-color: #ac9c8d;
   --body-font: 'Open Sans', sans-serif;
@@ -86,16 +86,16 @@ img {
 }
 
 .nav__logo {
-  color: var(--red-color);
+  color: var(--green-color);
 }
 
 .nav__item {
-  color: #741d29;
+  color: #1b4332;
   margin-bottom: 2rem;
 }
 
 .nav__link {
-  color: var(--red-color);
+  color: var(--green-color);
 }
 
 .nav__toggle {
@@ -132,17 +132,17 @@ img {
 }
 
 .home__parallax-img1 {
-  background-image: url("/assets/img/pgweb1-03.png");
+  background-image: url("/assets/img/img01.png");
   z-index: var(--z-normal);
 }
 
 .home__parallax-img2 {
-  background-image: url("/assets/img/pgweb2-02.png");
+  background-image: url("/assets/img/img02-01.png");
   z-index: var(--z-tooltip);
 }
 
 .home__parallax-img3 {
-  background-image: url("/assets/img/pgweb3-01.png");
+  background-image: url("/assets/img/img03-01.png");
   z-index: var(--z-fixed);
 }
 
@@ -156,16 +156,17 @@ img {
   width: 100%;
   display: flex;
   justify-content: center;
-  color: var(--red-color);
-  border: #741d29;
+  color: var(--green-color);
+  border: #1b4332;
 }
 
 .home__title {
   top: 32%;
   font-size: var(--biggest-font-size);
   z-index: var(--z-normal);
-  color: #440c14;
-  border: #741d29;
+  color: #1b4332;
+  font-family: 'Poppins', cursive;
+  border: #1b4332;
 }
 
 .home__subtitle {
@@ -173,7 +174,7 @@ img {
   font-size: var(--h2-font-size);
   font-weight: bold;
   z-index: var(--z-tooltip);
-  color: #efe9e1;
+  color: #081c15;
 }
 
 .home__scroll {
@@ -210,7 +211,7 @@ img {
 .section__img {
   flex: 2;
   max-width: clamp(200px, 50vw, 500px);
-  width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 0.5rem;
 }
